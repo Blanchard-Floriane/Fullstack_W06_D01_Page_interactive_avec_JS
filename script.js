@@ -58,8 +58,16 @@ header.addEventListener('dblclick', function() {
 
 
 //Fonctionnalité 7
-//Allez on va rajouter un peu de WTF dans la page : si un utilisateur clique sur le bouton gris `==>`, la dernière card (en bas à droite) va passer en premier (en haut à gauche). On va pouvoir faire tourner les cards !
+let greyButton = document.getElementsByClassName('btn-secondary')[0];
 
-//**Indice :** Cette fonctionnalité n'est pas ultra complexe en fait : il faut pointer sur le noeud-parent des 6 cards puis déplacer la card n°6 en premier avec un insertBefore.
+greyButton.addEventListener('click', function() {
+  let allCards = document.body.querySelectorAll(".col-md-4"); 
+  //ici getElement ne fonctionne pas + attention à bien prendre le contener le plus proche de la carte
+  //en mettant mon code dans ma fonction, même si mes cards sont mélangées, la fonction s'applique toujours
+  let lastCard = allCards[allCards.length - 1]; //_-1 dans un tableau prend le dernier élément
+  lastCard.parentNode.insertBefore(lastCard, allCards[0]); //en 
+});
 
-//**Petite remarque :** tu vas réaliser que si tu mélanges les cards, il est fort probable que la fonctionnalité 6 va se mettre à faire n'importe quoi. Si tu survoles un bouton "View", c'est une autre card qui va se réduire. Si tu arrives à corriger ça, c'est cool mais la consigne est d'ignorer ce souci pour le moment.
+
+//Fonctionnalité 8
+
