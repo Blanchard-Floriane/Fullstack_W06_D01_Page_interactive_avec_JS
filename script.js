@@ -70,4 +70,14 @@ greyButton.addEventListener('click', function() {
 
 
 //Fonctionnalité 8
+let blueButton = document.getElementsByClassName('btn-primary')[0];
+blueButton.setAttribute('href', '#'); //pour ne plus rediriger vers le site de the hacking project
 
+blueButton.addEventListener('click', function() {
+  let allCards = document.body.querySelectorAll(".col-md-4"); 
+  let firstCard = allCards[0]; //sélectionne la 1ère carte
+  firstCard.parentNode.insertBefore(firstCard, allCards[allCards.length -1].nextSibling); 
+  //il faut ajouter .nextSibling sinon la carte ne va jamais en dernière position 
+});
+
+//Fonctionnalité 9
